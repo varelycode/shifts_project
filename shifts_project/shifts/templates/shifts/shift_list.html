@@ -1,0 +1,20 @@
+
+<div>
+    <h1><a href="/">Shifts Display</a></h1>
+</div>
+
+
+{% for shift in s_query %}
+    <div>
+        <h4> Description: <a href="{% url 'detail' shift.id %}">{{ shift }}</a></h4>
+        <p>Date: {{ shift.shifts_text|linebreaksbr }}</p>
+        <p>Start Time: {{ shift.start_datetime|linebreaksbr }}</p>
+        <p>End Time: {{ shift.end_datetime|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
+
+ <a href="{% url 'run_new' %}"> CREATE NEW SHIFT </a>
+ <br> 
+ <a href=""> SHIFTS BY DAY/HOUR</a>
+ </br>

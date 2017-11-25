@@ -1,0 +1,15 @@
+<div>
+    <h1><a href="/">Runs</a></h1>
+</div>
+
+{% for run in shift.runs_related.all %}
+    <div>
+        <h4> Description: <a href="">{{ run.runs_text }}</a></h4>
+        <p>Date: {{ shift.start_datetime|linebreaksbr }}</p>
+        <p>Start Time: {{ run.runs_start|linebreaksbr }}</p>
+        <p>End Time: {{ run.runs_end|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
+
+ <a href="{% url 'run_new' %}"> create new run </a>

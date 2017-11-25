@@ -1,0 +1,15 @@
+{% extends 'shifts/detail.html' %}
+<div>
+    <h1><a href="/">Shifts Display</a></h1>
+</div>
+
+{%block content %}
+{% for shift in s_query %}
+    <div>
+        <h4> Description: <a href="">{{ shift.shifts_text }}</a></h4>
+        <p>Date: {{ shift.shifts_text|linebreaksbr }}</p>
+        <p>Start Time: {{ shift.start_datetime|linebreaksbr }}</p>
+        <p>End Time: {{ shift.end_datetime|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
