@@ -1,0 +1,20 @@
+
+{% extends 'shifts/base.html' %}
+
+
+{% block title %} Create New Run {% endblock %}
+
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Shifts</a></li>
+  <li class="breadcrumb-item"><a href="">Run</a></li>
+  <li class="breadcrumb-item active">New Run</li>
+{% endblock %}
+
+{% block content %}
+  <form method="post" novalidate>
+    {% csrf_token %}
+     {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Create</button>
+  </form>
+{% endblock %}

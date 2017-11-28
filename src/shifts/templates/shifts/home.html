@@ -1,0 +1,44 @@
+{% extends 'shifts/base.html' %}
+
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Shifts</li>
+{% endblock %}
+
+
+
+{% block content %}
+<table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Shift Name</th>
+        <th>Start Time</th>
+        <th> End Time</th>
+        <th>Runs Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for shift in s_query %}
+        <tr>
+          <td>
+            <a href="{% url 'detail' shift.id %}">{{ shift }}</a>
+            <small class="text-muted d-block">{{ shift.start_datetime }}</small>
+          </td>
+          <td class="align-middle">{{shift.start_datetime}}</td>
+          <td class="align-middle">{{shift.end_datetime}}</td>
+          <td class= "align-middle"> 0</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+<div>
+<a href=""> <button type="submit" class="btn btn-primary btn-sm">  Create New Shift </button> </a>
+<button type="submit" class="btn btn-primary btn-sm"> Sort Shifts</button>
+
+</div>
+
+</body>
+ 
+{% endblock %}
+ 

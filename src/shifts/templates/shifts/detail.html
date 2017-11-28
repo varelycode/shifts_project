@@ -1,0 +1,37 @@
+{% extends 'shifts/base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Shifts</a></li>
+  <li class="breadcrumb-item"><a href="">Run</a></li>
+{% endblock %}
+
+
+
+{% block content %}
+<table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Run Name</th>
+        <th>Start Time</th>
+        <th> End Time</th>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for run in shift.runs_related.all %}
+        <tr>
+          <td>
+            <a href="">{{ run.runs_text }}</a>
+            <small class="text-muted d-block">{{ shift.start_datetime }}</small>
+          </td>
+          <td class="align-middle">{{run.runs_start}}</td>
+          <td class="align-middle">{{run.runs_end}}</td>
+          <td class= "align-middle"> 0</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'run_new' shift.id %}"> <button type="submit" class="btn btn-primary btn-sm">  Create New Run </button> </a>
+
+{% endblock %}
